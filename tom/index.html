@@ -18,6 +18,15 @@
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
 
     <style type="text/css">
+
+    .stretch iframe {
+            position: absolute;
+            top: 0; 
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
         .wordcloud {
             border: 0px solid #000;
             height: 3in;
@@ -40,7 +49,7 @@
            font-size: 1.5em;
         }
 
-        .spotty  p{
+        .spotty  p, .source p{
             display: block;
             float:left;
             padding: 12px;
@@ -55,13 +64,23 @@
             margin-right: 12px;
         }
 
-        .spotty a {
+        .spotty a, .source a {
             color: #424242;
             text-decoration: none;
         }
 
         .spotty p:hover {
             background-color: #efefef;
+        }
+        ol.nirvana  {
+            color: #fff;
+            font-size: 2em;
+            text-align: left;
+            margin-left: 25%;
+        }
+
+        #smaller {
+            font-size: 1em;
         }
     </style>
 
@@ -110,6 +129,14 @@
 
                         </div> 
                     </section>
+                    <section data-background-color="#000">
+                        <h2 class="nirvana">TEMPTATIONS</h2>
+                        <ol class="nirvana">
+                        <li>Own</li>
+                        <li>Control/Perfect</li>
+                        <li>Flow/Connect</li>
+                        </ol>
+                    </section>
 
                     <section data-background-color="#fff">
                       <h4 class="lyrics">
@@ -131,7 +158,6 @@
                                 console.log(data); //dumps the data to the console to check if the callback is made successfully.
                                     $('#breed').append('<p><a href="'+ data.preview_url +'"><img src="'+ data.album.images[2].url + '" class="align-left">' + data.artists[0].name  +' </br>' + data.name +'</p></a>');
                                 
-                                
                                 } //success
                               }); //ajax
                               
@@ -141,9 +167,47 @@
                     </section>
 
                     <section>
-                        <p><br /></p>
-                        <p><br /></p>
-                        <h1>The End</h1>
+                                  <h4>Twitter & Google Docs & YouTube</h4>
+
+                                           <a class="twitter-timeline"  href="https://twitter.com/search?q=%23endofdays%20AND%20from%3A%40twoodwar%20" data-widget-id="793139626718486529">Tweets about #endofdays AND from:@twoodwar </a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                <div class="source">
+                <p>
+                    <a href="https://docs.google.com/spreadsheets/d/1PfVEh83inWmT4MudDU-rZhFiumj83fJeuHO6x5l66sg/pubhtml?gid=409672398&single=true">Spreadsheet</a></br>
+                    <a href="http://bionicteaching.com/youtube-view-count-to-tweet/">Blog Post</a><br/>
+                    <a href="https://twitter.com/search?f=tweets&vertical=default&q=%23endofdays%20%40twoodwar&src=typd">Search vs Twitter Widget</a>
+                </p>
+                </div>
+
+                    </section>
+                    <section>
+                        <h4 class="lyrics" id="smaller">
+                       You see a lot up there but don't be scared<br/>
+                        Who needs action when you got words
+                        </h4>  
+                         <div id="plateau" class="spotty">
+                       <script type="text/javascript">                
+                            $(document).ready(function(){ 
+                              console.log("ready"); //just to check in the firebug console.
+                              
+                            $.ajax({
+                              url:'https://api.spotify.com/v1/tracks/5zYoaHjRlIEAK2jJJzHkmO',
+                              jsonp:"cb",
+                              dataType:'json',
+                              success: function(data) {
+                                console.log(data); //dumps the data to the console to check if the callback is made successfully.
+                                    $('#plateau').append('<p><a href="'+ data.preview_url +'"><img src="'+ data.album.images[2].url + '" class="align-left">' + data.artists[0].name  +' </br>' + data.name +'</p></a>');
+                                
+                                } //success
+                              }); //ajax
+                              
+                            });//ready
+                      </script>
+                      </div> 
+                    </section>
+
+                    <section>
+                       <iframe src="https://drive.google.com/file/d/0B_9l84KvUJBWVElZNDV3R1lJcHM/preview" width="640" height="480"></iframe>
                     </section>
 
                 </div>
