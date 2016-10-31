@@ -15,6 +15,7 @@
 
     <link rel="stylesheet" href="https://kinlane.github.io/open-ed/css/main.css">
     <link rel="stylesheet" href="https://kinlane.github.io/open-ed/css/default.css" id="theme">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
 
     <style type="text/css">
         .wordcloud {
@@ -25,6 +26,33 @@
             page-break-after: always;
             page-break-inside: avoid;
             width: 6in;
+        }
+
+        h2.nirvana {
+            font-size: 3em;
+            font-family: 'Abril Fatface', cursive;
+            color: yellow;
+        }
+
+        h4.lyrics {
+           font-family: 'Abril Fatface', cursive;
+           text-align: left;
+           font-size: 1.5em;
+        }
+
+        .spotty  p{
+            display: block;
+            float:left;
+            padding: 12px;
+            margin: 10px;
+            border: 1px solid #efefef;
+            text-align: left;
+            width: 50%;
+            font-size: .8em;
+        }
+        .spotty .align-left {
+            float: left;
+            margin-right: 12px;
         }
     </style>
 
@@ -40,13 +68,65 @@
                 <!-- Any section element inside of this container is displayed as a slide -->
                 <div class="slides">
 
-                    <section>
-                      <p><strong>Tom Woodward</strong></p>
-                      <p><strong>The Man!</strong></p>
+                    <section data-background-color="#000">
+                      <h2 class="nirvana">{"API": "NIRVANA"}</h2>
                     </section>
 
                     <section>
-                      <p><strong>Magic!</strong></p>
+                        <h4 class="lyrics">
+                        Show me how you question, question<br/>
+                        Lead the way to my temptations
+                        </h4>   
+                        <div id="mustache" class="spotty">
+                            
+
+                            <script type="text/javascript">                
+                            $(document).ready(function(){ 
+                              console.log("ready"); //just to check in the firebug console.
+                              
+                            $.ajax({
+                              url:'https://api.spotify.com/v1/tracks/7qje4KXxXzDZsyo9TsSEwa',
+                              jsonp:"cb",
+                              dataType:'json',
+                              success: function(data) {
+                                console.log(data); //dumps the data to the console to check if the callback is made successfully.
+                                    $('#mustache').append('<p><img src="'+ data.album.images[2].url + '" class="align-left">' + data.artists[0].name  +' </br>' + data.name );
+                                
+                                } //success
+                              }); //ajax
+                              
+                            });//ready
+                      </script>
+
+                        </div> 
+                    </section>
+
+                    <section data-background-color="#fff">
+                      <h4 class="lyrics">
+                        We can plant a house<br>
+                        We can build a tree<br>
+                        I don't even care<br>
+                        We could have all three
+                      </h2>
+                        <div id="breed" class="spotty">
+                       <script type="text/javascript">                
+                            $(document).ready(function(){ 
+                              console.log("ready"); //just to check in the firebug console.
+                              
+                            $.ajax({
+                              url:'https://api.spotify.com/v1/tracks/0TYJQVuc59U3jWDXEELhOI',
+                              jsonp:"cb",
+                              dataType:'json',
+                              success: function(data) {
+                                console.log(data); //dumps the data to the console to check if the callback is made successfully.
+                                    $('#breed').append('<p><img src="'+ data.album.images[2].url + '" class="align-left">' + data.artists[0].name  +' </br>' + data.name );
+                                
+                                } //success
+                              }); //ajax
+                              
+                            });//ready
+                      </script>
+                      </div>
                     </section>
 
                     <section>
@@ -70,8 +150,8 @@
 
             </div>
 
-            <script src="https://kinlane.github.io/open-ed/javascript/head.min.js"></script>
-            <script src="https://kinlane.github.io/open-ed/javascript/reveal.min.js"></script>
+            <script src="http://woodwardtw.github.io/reveal.js/lib/js/head.min.js"></script>
+            <script src="http://woodwardtw.github.io/reveal.js/js/reveal.js"></script>
             <script>
 
                 // Full list of configuration options available here:
@@ -82,7 +162,7 @@
                     history: true,
 
                     theme: Reveal.getQueryHash().theme || 'default', // available themes are in /css/theme
-                    transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/linear(2d)
+                    transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/linear(2d)
 
                     // Optional libraries used to extend on reveal.js
                     dependencies: []
