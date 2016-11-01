@@ -85,6 +85,25 @@
 
 
     </style>
+    <script>
+         function spotIt(spotId,divId){               
+                            $(document).ready(function(){ 
+                              console.log("ready"); //just to check in the firebug console.
+                              
+                            $.ajax({
+                              url:'https://api.spotify.com/v1/tracks/'+spotId,
+                              jsonp:"cb",
+                              dataType:'json',
+                              success: function(data) {
+                                console.log(data); //dumps the data to the console to check if the callback is made successfully.
+                                    $('#'+divId).append('<p><a href="'+ data.preview_url +'"><img src="'+ data.album.images[2].url + '" class="align-left">' + data.artists[0].name  +' </br>' + data.name +'</p></a>');
+                                
+                                } //success
+                              }); //ajax
+                              
+                            });//ready
+                          }
+    </script>
 
 </head>
 
@@ -108,26 +127,7 @@
                         Lead the way to my temptations
                         </h4>   
                         <div id="mustache" class="spotty">
-                            
-
-                            <script type="text/javascript">  
-
-                            $(document).ready(function(){ 
-                              console.log("ready"); //just to check in the firebug console.
-                              
-                            $.ajax({
-                              url:'https://api.spotify.com/v1/tracks/7qje4KXxXzDZsyo9TsSEwa',
-                              jsonp:"cb",
-                              dataType:'json',
-                              success: function(data) {
-                                console.log(data); //dumps the data to the console to check if the callback is made successfully.
-                                    $('#mustache').append('<p><a href="'+ data.preview_url +'"><img src="'+ data.album.images[2].url + '" class="align-left">' + data.artists[0].name  +' </br>' + data.name +'</p></a>');
-                                
-                                } //success
-                              }); //ajax
-                              
-                            });//ready
-                      </script>
+                            <script>spotIt('7qje4KXxXzDZsyo9TsSEwa','mustache');</script>
 
                         </div> 
                     </section>
@@ -148,23 +148,8 @@
                         We could have all three
                       </h2>
                         <div id="breed" class="spotty">
-                       <script type="text/javascript">                
-                            $(document).ready(function(){ 
-                              console.log("ready"); //just to check in the firebug console.
-                              
-                            $.ajax({
-                              url:'https://api.spotify.com/v1/tracks/0TYJQVuc59U3jWDXEELhOI',
-                              jsonp:"cb",
-                              dataType:'json',
-                              success: function(data) {
-                                console.log(data); //dumps the data to the console to check if the callback is made successfully.
-                                    $('#breed').append('<p><a href="'+ data.preview_url +'"><img src="'+ data.album.images[2].url + '" class="align-left">' + data.artists[0].name  +' </br>' + data.name +'</p></a>');
-                                
-                                } //success
-                              }); //ajax
-                              
-                            });//ready
-                      </script>
+                            <script>spotIt('0TYJQVuc59U3jWDXEELhOI','breed');</script>
+
                       </div>
                     </section>
 
@@ -197,23 +182,7 @@
                         Who needs action when you got words
                         </h4>  
                          <div id="plateau" class="spotty">
-                       <script type="text/javascript">                
-                            $(document).ready(function(){ 
-                              console.log("ready"); //just to check in the firebug console.
-                              
-                            $.ajax({
-                              url:'https://api.spotify.com/v1/tracks/5zYoaHjRlIEAK2jJJzHkmO',
-                              jsonp:"cb",
-                              dataType:'json',
-                              success: function(data) {
-                                console.log(data); //dumps the data to the console to check if the callback is made successfully.
-                                    $('#plateau').append('<p><a href="'+ data.preview_url +'"><img src="'+ data.album.images[2].url + '" class="align-left">' + data.artists[0].name  +' </br>' + data.name +'</p></a>');
-                                
-                                } //success
-                              }); //ajax
-                              
-                            });//ready
-                      </script>
+                            <script>spotIt('5zYoaHjRlIEAK2jJJzHkmO','plateau');</script>
                       </div> 
                     </section>
                     
@@ -232,23 +201,8 @@
                             The results are always prefect
                         </h4>
                          <div id="ohme" class="spotty">
-                       <script type="text/javascript">                
-                            $(document).ready(function(){ 
-                              console.log("ready"); //just to check in the firebug console.
-                              
-                            $.ajax({
-                              url:'https://api.spotify.com/v1/tracks/4L0CZr4WM32ymqvAsUoeeS',
-                              jsonp:"cb",
-                              dataType:'json',
-                              success: function(data) {
-                                console.log(data); //dumps the data to the console to check if the callback is made successfully.
-                                    $('#ohme').append('<p><a href="'+ data.preview_url +'"><img src="'+ data.album.images[2].url + '" class="align-left">' + data.artists[0].name  +' </br>' + data.name +'</p></a>');
-                                
-                                } //success
-                              }); //ajax
-                              
-                            });//ready
-                      </script>
+                            <script>spotIt('4L0CZr4WM32ymqvAsUoeeS','ohme');</script>
+                     
                     </section>
                     <section>
                        <iframe src="https://drive.google.com/file/d/0B_9l84KvUJBWVElZNDV3R1lJcHM/preview" width="640" height="480"></iframe>
