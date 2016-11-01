@@ -96,7 +96,7 @@
                               dataType:'json',
                               success: function(data) {
                                 console.log(data); //dumps the data to the console to check if the callback is made successfully.
-                                    $('#'+divId).append('<p><a href="'+ data.preview_url +'"><img src="'+ data.album.images[2].url + '" class="align-left">' + data.artists[0].name  +' </br>' + data.name +'</p></a>');
+                                    $('#'+divId).append('<p><a href="'+ data.preview_url +'"><img src="'+ data.album.images[2].url + '" class="align-left">' + data.artists[0].name  +' </br><i>' + data.name +'</i></p></a>');
                                 
                                 } //success
                               }); //ajax
