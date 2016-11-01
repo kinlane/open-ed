@@ -187,7 +187,7 @@
                     </section>
                     <section>
                         <div class="stretch">
-                            <iframe src="http://augmenting.me/radioactive/google_words.php?id=1YMUhlp5OeipsWpUAf6CwSB2DnCrGkJPQ5zzYzVmgSUw" width="100%"></iframe>
+                            <iframe src="https://rampages.us/extras/world-lang/?docId=1RIsOAiVsUmnKhufpvxc6CLd4wraCVFSVDr5HPnItDME" width="100%"></iframe>
                         </div>    
                     </section>
 
@@ -216,6 +216,7 @@
                       </script>
                       </div> 
                     </section>
+                    
                     <section data-background-color="#000">
                     <h2 class="nirvana">
                     =IMPORTXML<br>
@@ -224,7 +225,31 @@
                     =IMPORTHTML<br>
                     </h2>
                     </section>
-
+                    <section>
+                        <h4 class="lyrics">
+                            I don't have to think<br/>
+                            I only have to do it<br/>
+                            The results are always prefect
+                        </h4>
+                         <div id="ohme" class="spotty">
+                       <script type="text/javascript">                
+                            $(document).ready(function(){ 
+                              console.log("ready"); //just to check in the firebug console.
+                              
+                            $.ajax({
+                              url:'https://api.spotify.com/v1/tracks/4L0CZr4WM32ymqvAsUoeeS',
+                              jsonp:"cb",
+                              dataType:'json',
+                              success: function(data) {
+                                console.log(data); //dumps the data to the console to check if the callback is made successfully.
+                                    $('#ohme').append('<p><a href="'+ data.preview_url +'"><img src="'+ data.album.images[2].url + '" class="align-left">' + data.artists[0].name  +' </br>' + data.name +'</p></a>');
+                                
+                                } //success
+                              }); //ajax
+                              
+                            });//ready
+                      </script>
+                    </section>
                     <section>
                        <iframe src="https://drive.google.com/file/d/0B_9l84KvUJBWVElZNDV3R1lJcHM/preview" width="640" height="480"></iframe>
                     </section>
