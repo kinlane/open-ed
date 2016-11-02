@@ -113,8 +113,14 @@
             margin-right: 20px;
         }
 
+        #perfect {
+            display: inline-block;
+        }
+
     </style>
     <script>
+    
+
          function spotIt(spotId,divId){               
                             $(document).ready(function(){ 
                               console.log("ready"); //just to check in the firebug console.
@@ -227,7 +233,7 @@
                         <h4 class="lyrics">
                             I don't have to think<br/>
                             I only have to do it<br/>
-                            The results are always prefect
+                            The results are always <div id="perfect">prefect</div>
                         </h4>
                          <div id="ohme" class="spotty">
                             <script>spotIt('4L0CZr4WM32ymqvAsUoeeS','ohme');</script>
@@ -301,6 +307,31 @@
                     // Optional libraries used to extend on reveal.js
                     dependencies: []
                 });
+
+                function makePerfect (){                    
+                    document.getElementById('perfect').innerHTML = 'PERFECT';
+                }
+
+                function makeImperfect () {
+                    document.getElementById('perfect').innerHTML = 'PREFECT';
+                }
+
+                function timeout() {
+                setTimeout(function () {
+                       setTimeout(makePerfect, 1000);
+                       setTimeout(makeImperfect, randomIntFromInterval(2200, 9000));
+                    // Then recall the parent function to
+                    // create a recursive loop.
+                    timeout();
+                }, randomIntFromInterval(2200, 8000));
+            }
+
+                timeout();
+
+                function randomIntFromInterval(min,max)
+                {
+                    return Math.floor(Math.random()*(max-min+1)+min);
+                }
 
             </script>
 
