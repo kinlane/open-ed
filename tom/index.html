@@ -83,6 +83,27 @@
             font-size: 1em;
         }
 
+        #blogposts, #blogposts a {
+            text-decoration: none;
+            text-align:left;
+            font-size: .7em;
+            color: #424242;
+        }
+        .pinboard {
+            height: 60px;
+            border-bottom: 2px solid #efefef;
+             margin-bottom: 18PX;
+        }
+
+        .pinboard:hover {
+            background-color: #efefef;
+        }
+        
+        .pinimg img {
+            float: left;
+            display: inline-block;
+            margin-right: 20px;
+        }
 
     </style>
     <script>
@@ -206,6 +227,33 @@
                     </section>
                     <section>
                        <iframe src="https://drive.google.com/file/d/0B_9l84KvUJBWVElZNDV3R1lJcHM/preview" width="640" height="480"></iframe>
+                    </section>
+                    <section>
+                    <div id="blogposts"></div>
+                        <script type="text/javascript">                
+                            $(document).ready(function(){ 
+                              console.log("ready"); //just to check in the firebug console.
+                              
+                            $.ajax({
+                              url:'https://bionicteaching.com/wp-json/wp/v2/posts/?filter[tag]=opened16&per_page=10',
+                              jsonp:"cb",
+                              dataType:'json',
+                              success: function(data) {
+                                console.log(data); //dumps the data to the console to check if the callback is made successfully.
+                                $.each(data, function(index, item){
+                                    if (item.better_featured_image != null){ var photo ='<div class="pinimg"><img src="'+ item.better_featured_image.media_details.sizes.thumbnail.source_url +'" width="40px" height="40px"></div>' } else {var photo ='<div class="pinimg"><img src="https://tomwoodward.us/imgs/default.png" width="40px" height="40px"></div>';};              
+                                    $('#blogposts').append('<a href="' + item.link + '"><div class="pinboard">' + photo + '<div class="pindetails"> ' +item.title.rendered + ' <br/> published on ' + item.date.substring(0,10) +' </div> </div></a>');              
+                                  if (index == 10) return false; //only display 10 items
+                                  }); //each
+                                } //success
+                              }); //ajax
+                              
+                            });//ready
+                      </script>
+          
+
+
+
                     </section>
 
                 </div>
